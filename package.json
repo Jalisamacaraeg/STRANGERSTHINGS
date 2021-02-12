@@ -1,0 +1,41 @@
+{
+  "name": "react-strangers-things",
+  "version": "1.0.0",
+  "description": "react-stranger-things",
+  "main": "index.js",
+  "scripts": {
+    "start": "CHOKIDAR_USEPOLLING=true react-scripts start",
+    "build": "react-scripts build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeahya22/react-strangers-things.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeahya22/react-strangers-things/issues"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "fontsource-roboto": "^4.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

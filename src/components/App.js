@@ -1,8 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
-import { AccountForm, Posts, Post, NavBar } from '.';
+import { AccountForm, Posts, Post } from '.';
 import { callApi } from '../api';
+
+import { NavBar } from '.';
+// import 'fontsource-roboto';
+
 
 const fetchUserData = async (token) => {
     const { data } = await callApi({
@@ -40,12 +44,11 @@ const App = () => {
     }, [token]);
 
     return (
-        <>        
-        <Route exact path="/NavBar">
+        <>
+            <Route path="/">
                 <NavBar />
             </Route>
-
-            <h1>not Craig's List</h1>
+            
             <Route exact path="/">
                 {userData.username && <div>Hello, {userData.username}!</div>}
             </Route>
@@ -72,7 +75,7 @@ const App = () => {
                     setToken={setToken}
                     setUserData={setUserData}
                 />
-            </Route>            
+            </Route>
         </>
     );
 };

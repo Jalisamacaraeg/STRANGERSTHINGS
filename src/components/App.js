@@ -5,8 +5,6 @@ import { AccountForm, Posts, Post } from '.';
 import { callApi } from '../api';
 
 import { NavBar } from '.';
-// import 'fontsource-roboto';
-
 
 const fetchUserData = async (token) => {
     const { data } = await callApi({
@@ -31,6 +29,9 @@ const App = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(async () => {
+        const posts = await fetchPosts();
+        setPosts(posts);
+
         if (!token) {
             setToken(localStorage.getItem('token'));
             return;
@@ -39,23 +40,21 @@ const App = () => {
         if (data && data.username) {
             setUserData(data);
         }
-        const posts = await fetchPosts();
-        setPosts(posts);
+        
     }, [token]);
 
     return (
         <>
-            <Route path="/">
-                <NavBar />
-            </Route>
-            
+            <NavBar />
+
             <Route exact path="/">
+                <Posts posts={posts} />  {/* moved here to land on posts page */}
                 {userData.username && <div>Hello, {userData.username}!</div>}
             </Route>
 
-            <Route exact path="/posts">
-                <Posts posts={posts} />
-            </Route>
+            {/* <Route exact path="/posts">
+            <Posts posts={posts} />
+            </Route> (we moved it up to above) */}
 
             <Route path="/posts/:postId">
                 <Post posts={posts} />

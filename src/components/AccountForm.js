@@ -8,6 +8,8 @@ import "./specificStyles.css";
 const AccountForm = ({ action, setToken, setUserData }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
   const isLogin = action === "login";
   const title = isLogin ? "Login" : "Register";
   const oppositeTitle = isLogin ? "Register" : "Login";
@@ -35,6 +37,7 @@ const AccountForm = ({ action, setToken, setUserData }) => {
     <div className="form">
       <h2 className="formTitle">{title}</h2>
       <form onSubmit={handleSubmit}>
+
         <div>
           <input
             className="inputUsername"
@@ -44,6 +47,7 @@ const AccountForm = ({ action, setToken, setUserData }) => {
             onChange={(event) => setUsername(event.target.value)}
           ></input>
         </div>
+
         <div>
           <input
             className="inputPassword"
@@ -52,6 +56,20 @@ const AccountForm = ({ action, setToken, setUserData }) => {
             onChange={(event) => setPassword(event.target.value)}
           ></input>
         </div>
+
+        {/* <div>
+       {if ({title} === "Register")
+        <input
+         className="confirmPassword"
+         type="password"
+         placeholder="confirm password"         
+       ></input>        
+        } 
+        {if (password === confirmPassword)
+        onChange={(event) => setPassword(event.target.value)}          
+        }
+        </div> */}
+
         <div>
           <Button
             variant="contained"
@@ -61,6 +79,7 @@ const AccountForm = ({ action, setToken, setUserData }) => {
             {title}
           </Button>
         </div>
+
       </form>
       <Link className="switchTo" to={`/${oppositeAction}`}>
         {oppositeTitle}

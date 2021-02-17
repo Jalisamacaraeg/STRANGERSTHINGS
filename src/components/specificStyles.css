@@ -1,12 +1,18 @@
 
 /* !Navigation Header */
 .siteName {
+  display: flex;
+  justify-content: flex-start;
+
   color: blue;
   font-family: Roboto;
   font-size: 24px;
+  font-weight: bold;
   text-decoration: underline;
 }
-.home {
+.logOut {
+  display: flex;
+
   color: blue;
   text-decoration: none;
   font-family: Roboto;
@@ -14,11 +20,22 @@
   font-weight: bold;
 }
 .linkLoginRegister {
+  display: flex;
+  justify-content: flex-end;
+
   color: blue;
   text-decoration: none;
   font-family: Roboto;
   font-size: 20px;
   font-weight: bold;
+}
+
+/* !Hello User */
+.helloUser {
+  margin-top: 0.5em;
+  margin-left: 1em;
+  color: blue;
+  font-family: 'Roboto';
 }
 
 /* !Loading */
@@ -31,7 +48,7 @@
   bottom: 0;
 
   backdrop-filter: blur(3px);
-  background: rgba(0, 0, 0, 0.4);
+  background: gray;
 
   font-family: "Roboto", sans-serif;
   font-size: 2rem;
@@ -80,7 +97,7 @@
   margin-top: 30px;
   margin-bottom: 15px;
 }
-.inputUsername {   
+.inputUsername {
   margin: 15px;
   padding: 0.25em;
   outline: 1px solid black;

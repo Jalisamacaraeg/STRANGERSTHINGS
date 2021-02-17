@@ -26,6 +26,6 @@ export const callApi = async ({ url, method, token, body }) => {
         return data;
         
     } catch (error) {
-        console.error('ERROR: ', error);
+        window.alert('ERROR: ', error);
     }
 };

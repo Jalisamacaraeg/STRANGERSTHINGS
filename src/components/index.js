@@ -6,3 +6,4 @@ export { default as Post } from './Post';
 
 export { default as NavBar } from './NavBar';
 export { default as Loading } from './Loading';
+export { default as CreatePost } from './CreatePost';

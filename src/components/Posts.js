@@ -6,7 +6,7 @@ import './specificStyles.css'
 const Posts = ({ posts }) => {
     const history = useHistory();
     return (
-        <div className="postsBody">
+        <div className="postsBody">            
             <h2 className="postsHeading">Posts</h2>
             {posts.map((post) => (
                 <div key={post._id} style={{ borderTop: '1px solid black', padding: '.5em' }}>

@@ -2,7 +2,6 @@
 /* !Navigation Header */
 .siteName {
   display: flex;
-  justify-content: flex-start;
 
   color: blue;
   font-family: Roboto;
@@ -20,8 +19,7 @@
   font-weight: bold;
 }
 .linkLoginRegister {
-  display: flex;
-  justify-content: flex-end;
+  display: flex;  
 
   color: blue;
   text-decoration: none;

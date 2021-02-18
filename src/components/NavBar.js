@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 
 import { Appbar, Toolbar, Typography, makeStyles } from "@material-ui/core";
 import "./specificStyles.css";
@@ -10,22 +10,10 @@ const useStyles = makeStyles({
     justifyContent: "space-between",
     background: "silver",
     width: "100vw",
-  },
-  // siteName: {
-  //     display: 'flex',
-  //     alignItems: 'flex-start',
-  //     color: 'blue',
-  //     textDecoration: 'none',
-  //     fontFamily: 'Roboto',
-  //     fontSize: '24px',
-  //     fontWeight: 'bold',
-  //   },
+  }
 });
 
-const NavBar = ({ setToken, userData, setUserData }) => {
-
-  const [showResults, setShowResults] = React.useState(false);
-  const onClick = () => setShowResults(true);
+const NavBar = ({ setToken, userData, setUserData }) => {  
 
   const logOut = () => {
     localStorage.clear();
@@ -42,22 +30,16 @@ const NavBar = ({ setToken, userData, setUserData }) => {
             not Craig's List
           </Link>
         </div>
-
         <div>
-          <Link className="linkLoginRegister" to="/login">
-            Log In / Register            
-          </Link>
-        </div>
-
-        <div>
-          <Link
-            className="logOut" to="/" onClick={() => {
-                {logOut(userData);}
-                {logOut ? showResults : false}
-            }}            
-          >
-            Log Out
-          </Link>
+          {userData._id ? 
+            <Link className="logOut" to="/" onClick={() => logOut()}>
+              Logout
+            </Link>
+          : 
+            <Link className="linkLoginRegister" to={"/login"}>
+              Login / Register
+            </Link>
+          }
         </div>
       </Toolbar>
     </div>

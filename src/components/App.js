@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Route } from "react-router-dom";
-import { AccountForm, Posts, Post, CreatePost} from ".";
+import { Route, Switch } from "react-router-dom";
+import { AccountForm, Posts, Post, CreatePost } from ".";
 import { callApi } from "../api";
-
 import { NavBar } from ".";
-// import { CreatePost } from "./CreatePost";
 
 const fetchUserData = async (token) => {
   const { data } = await callApi({
@@ -44,17 +42,22 @@ const App = () => {
 
   return (
     <>
-      <NavBar setToken={setToken} setUserData={setUserData} />
-
+      <NavBar
+        userData={userData}
+        setToken={setToken}
+        setUserData={setUserData}
+      />
+    <Switch>
       <Route exact path="/">
-      {userData.username && <div className="helloUser">Hello, {userData.username}!</div>}
+        {userData.username && (
+          <div className="helloUser">Hello, {userData.username}!</div>
+        )}
         <Posts posts={posts} /> {/* moved here to land on posts page */}
-        
       </Route>
-
-      {/* <Route exact path="/posts">
-            <Posts posts={posts} />
-            </Route> (we moved it up to above) */}
+      
+      <Route  exact path="/posts/createpost">
+        <CreatePost token={token} posts={posts} setPosts={setPosts} />
+      </Route>
 
       <Route path="/posts/:postId">
         <Post posts={posts} />
@@ -75,10 +78,7 @@ const App = () => {
           setUserData={setUserData}
         />
       </Route>
-
-      {/* <Route path="/post/create">
-        <CreatePost token={token} posts={posts} setPosts={setPosts} />
-      </Route> */}
+      </Switch>
     </>
   );
 };

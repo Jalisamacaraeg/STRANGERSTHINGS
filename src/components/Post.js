@@ -8,11 +8,13 @@ const Post = ({ posts }) => {
     const { postId } = useParams();
     const post = posts.find((post) => postId === post._id);
 
-    if (post === undefined) {
-        return <Loading />        
-    }
+    // if (post === undefined) {
+    //     return <Loading />        
+    // }
 
     return (
+        <div>
+        { post ? ( 
         <div className="singlePost">
             {/* {postId !== undefined && <Post posts={posts} />} */}
             <h2>{post.title}</h2>
@@ -21,6 +23,9 @@ const Post = ({ posts }) => {
             <div>Price: {post.price}</div>
             <div>Location: {post.location}</div>
             <div>Delivers: {post.willDeliver ? 'Yes' : 'No'}</div>
+        </div>
+        ) : <Loading />
+        }
         </div>
     );
 };

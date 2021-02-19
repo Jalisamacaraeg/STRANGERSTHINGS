@@ -7,7 +7,7 @@ const Posts = ({ posts }) => {
     const history = useHistory();
     return (
         <div className="postsBody">            
-            <h2 className="postsHeading">Posts</h2>
+            <h2 className="postsHeading">Posts</h2>              
             {posts.map((post) => (
                 <div key={post._id} style={{ borderTop: '1px solid black', padding: '.5em' }}>
                     <h5>{post.title}</h5>

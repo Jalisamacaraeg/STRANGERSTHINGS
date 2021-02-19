@@ -35,9 +35,8 @@ const AccountForm = ({ action, setToken, setUserData }) => {
   };
   return (
     <div className="form">
-      <h2 className="formTitle">{title}</h2>
+      <h2 className="formTitle">{title}</h2>          
       <form onSubmit={handleSubmit}>
-
         <div>
           <input
             className="inputUsername"

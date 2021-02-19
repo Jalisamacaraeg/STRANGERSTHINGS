@@ -17,83 +17,103 @@ const CreatePost = ({ token }) => {
     // if there's data, tack on data prop. if data.data tack on token prop
     const data = await callApi({
       url: `/posts`,
-      body: { post: {title, description, price, location, deliver } },
+      body: { post: { title, description, price, location, deliver } },
       method: "POST",
-      token: token, 
-   });
+      token: token,
+    });
 
-   const postSuccess = data?.success;
+    const postSuccess = data?.success;
     if (postSuccess) {
+      window.alert("Post submitted!")
       history.push("/");
     } else {
-      window.alert("Post wasn't successful")
+      window.alert("Post wasn't successful");
     }
-  //  console.log("hey", data)
-  }
+    //  console.log("hey", data)
+  }; 
 
   return (
-    <div className="createPost">
-      <h2>Create Post</h2>
+    <div className="createPostPage">
+      <h2 className="createPost">Create Post</h2>
       <form onSubmit={handleSubmit}>
-      <label htmlFor="Title">Title:</label>
-        <input
-          type="text"
-          placeholder="Title"
-          required
-          onChange={(event) => setTitle(event.target.value)}
-        ></input>
-        <label htmlFor="Description">Description:</label>
-        <input
-          type="text"
-          placeholder="Description"
-          required          
-          onChange={(event) => setDescription(event.target.value)}
-        ></input>
-        <label htmlFor="Price">Price:</label><input
-          type="$"
-          placeholder="Price"
-          required          
-          onChange={(event) => setPrice(event.target.value)}
-        ></input>
-        <label htmlFor="Location">Location:</label><input
-          type="text"
-          placeholder="Location"
-          required          
-          onChange={(event) => setLocation(event.target.value)}
-        ></input>      
-        {/* <div onChange={handleChange}>
-          <label htmlFor="Will Deliver">Will Deliver</label>
-          <input type="radio" id="yes" value="yes" />
-          <input type="radio" id="no" value="no" />
-        </div> */}
-         <label>
-          {" "}
-          Will Deliver ?
-          <select value={deliver} onChange={(event) => {
-              setDeliver(event.target.value)
-          }}>
-           <option value ={ true }> -- select an option -- </option>
-            <option value="No">Yes</option>
-            <option value="Yes">No</option>
-          </select>
-        </label> 
-
-         <Button
-        // variant="contained"
-        type="submit"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          marginTop: "15px",
-          margin: "auto",
-          backgroundColor: "blue",
-          color: "white",
-        }}
-      >
-        Submit
-      </Button> 
-
-      </form>    
+        <div>
+          <div className="titleText" htmlFor="Title">
+            Title:
+          </div>
+          <input
+            className="title"
+            type="text"
+            // placeholder="Title"
+            required
+            onChange={(event) => setTitle(event.target.value)}
+          ></input>
+        </div>
+        <div>
+          <div className="descriptionText" htmlFor="Description">
+            Description:
+          </div>
+          <textarea
+            className="description"
+            type="text"
+            // placeholder="Description"
+            required
+            onChange={(event) => setDescription(event.target.value)}
+          ></textarea>
+        </div>
+        <div>
+          <div className="priceText" htmlFor="Price">
+            Price:
+          </div>
+          <input
+            className="price"
+            type="number"
+            // placeholder="Price"
+            required
+            onChange={(event) => setPrice(event.target.value)}
+          ></input>
+        </div>
+        <div>
+          <div className="locationText" htmlFor="Location">
+            Location:
+          </div>
+          <input
+            className="location"
+            type="text"
+            // placeholder="Location"
+            required
+            onChange={(event) => setLocation(event.target.value)}
+          ></input>
+        </div>
+        <div className="willDeliver">
+          <div>
+            Will Deliver ?{" "}
+            <select
+              value={deliver}
+              onChange={(event) => {
+                setDeliver(event.target.value);
+              }}
+            >
+              <option value={true}> -- select an option -- </option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <Button
+            type="submit"
+            style={{
+              display: "flex",
+              marginTop: "15px",
+              marginLeft: "15px",
+              backgroundColor: "blue",
+              color: "white",
+            }}
+          >
+            Submit
+          </Button>
+        </div>
+      </form>
     </div>
   );
 };

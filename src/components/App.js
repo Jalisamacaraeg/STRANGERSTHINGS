@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 import { AccountForm, Posts, Post, CreatePost } from ".";
 import { callApi } from "../api";
 import { NavBar } from ".";
+import './specificStyles.css';
 
 const fetchUserData = async (token) => {
   const { data } = await callApi({
@@ -41,7 +42,7 @@ const App = () => {
   }, [token]);
 
   return (
-    <>
+    <div style={{width: "100%"}}>
       <NavBar
         userData={userData}
         setToken={setToken}
@@ -50,7 +51,10 @@ const App = () => {
     <Switch>
       <Route exact path="/">
         {userData.username && (
+          <>
           <div className="helloUser">Hello, {userData.username}!</div>
+          <span><Link className="createPostLink" to="/posts/createpost">Create a post</Link></span>
+          </>
         )}
         <Posts posts={posts} /> {/* moved here to land on posts page */}
       </Route>
@@ -79,7 +83,7 @@ const App = () => {
         />
       </Route>
       </Switch>
-    </>
+    </div>
   );
 };
 

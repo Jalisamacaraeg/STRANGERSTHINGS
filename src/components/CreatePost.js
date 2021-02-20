@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { callApi } from "../api";
 
-import "./specificStyles.css";
 import { Button } from "@material-ui/core";
+import "./specificStyles.css";
 
 const CreatePost = ({ token }) => {
   const [title, setTitle] = useState("");
@@ -29,12 +29,12 @@ const CreatePost = ({ token }) => {
     } else {
       window.alert("Post wasn't successful");
     }
-    //  console.log("hey", data)
+    // console.log("hey", data)
   }; 
 
   return (
     <div className="createPostPage">
-      <h2 className="createPost">Create Post</h2>
+      <h2 className="createPostTitle">Create Post</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <div className="titleText" htmlFor="Title">
@@ -42,8 +42,7 @@ const CreatePost = ({ token }) => {
           </div>
           <input
             className="title"
-            type="text"
-            // placeholder="Title"
+            type="text"            
             required
             onChange={(event) => setTitle(event.target.value)}
           ></input>
@@ -54,8 +53,7 @@ const CreatePost = ({ token }) => {
           </div>
           <textarea
             className="description"
-            type="text"
-            // placeholder="Description"
+            type="text"           
             required
             onChange={(event) => setDescription(event.target.value)}
           ></textarea>
@@ -67,7 +65,6 @@ const CreatePost = ({ token }) => {
           <input
             className="price"
             type="number"
-            // placeholder="Price"
             required
             onChange={(event) => setPrice(event.target.value)}
           ></input>
@@ -78,8 +75,7 @@ const CreatePost = ({ token }) => {
           </div>
           <input
             className="location"
-            type="text"
-            // placeholder="Location"
+            type="text"            
             required
             onChange={(event) => setLocation(event.target.value)}
           ></input>

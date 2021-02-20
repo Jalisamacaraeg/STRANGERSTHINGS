@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link, Route, Switch } from "react-router-dom";
-import { AccountForm, Posts, Post, CreatePost } from ".";
+import { Route, Switch } from "react-router-dom";
+import { AccountForm, Posts, Post, CreatePost, Dashboard } from ".";
 import { callApi } from "../api";
+
 import { NavBar } from ".";
 import './specificStyles.css';
 
@@ -42,23 +43,30 @@ const App = () => {
   }, [token]);
 
   return (
-    <div style={{width: "100%"}}>
+    <div style={{width: "100vw"}}>
       <NavBar
         userData={userData}
         setToken={setToken}
-        setUserData={setUserData}
+        setUserData={setUserData}        
       />
+
     <Switch>
       <Route exact path="/">
         {userData.username && (
           <>
           <div className="helloUser">Hello, {userData.username}!</div>
-          <span><Link className="createPostLink" to="/posts/createpost">Create a post</Link></span>
           </>
         )}
         <Posts posts={posts} /> {/* moved here to land on posts page */}
       </Route>
       
+        <Route path="/dashboard">
+          <Dashboard           
+          setToken={setToken}
+          setUserData={setUserData}
+          />
+        </Route>
+
       <Route  exact path="/posts/createpost">
         <CreatePost token={token} posts={posts} setPosts={setPosts} />
       </Route>
@@ -82,6 +90,7 @@ const App = () => {
           setUserData={setUserData}
         />
       </Route>
+
       </Switch>
     </div>
   );

@@ -10,11 +10,10 @@ const useStyles = makeStyles({
     justifyContent: "space-between",
     background: "silver",
     width: "100vw",
-  }
+  },
 });
 
-const NavBar = ({ setToken, userData, setUserData }) => {  
-
+const NavBar = ({ setToken, userData, setUserData }) => {
   const logOut = () => {
     localStorage.clear();
     setUserData({});
@@ -30,17 +29,43 @@ const NavBar = ({ setToken, userData, setUserData }) => {
             not Craig's List
           </Link>
         </div>
+
         <div>
-          {userData._id ? 
+          {userData._id ? (
+            <span>
+              <Link className="createPost" to="/posts/createpost">
+                Create a post
+              </Link>
+            </span>
+          ) : (
+            <> </>
+          )}
+        </div>
+
+        <div>
+          {userData._id ? (
+            <span>
+              <Link className="dashboard" to="/dashboard">
+                Dashboard
+              </Link>
+            </span>
+          ) : (
+            <> </>
+          )}
+        </div>
+
+        <div>
+          {userData._id ? (
             <Link className="logOut" to="/" onClick={() => logOut()}>
               Logout
             </Link>
-          : 
-            <Link className="linkLoginRegister" to={"/login"}>
+          ) : (
+            <Link className="loginRegister" to={"/login"}>
               Login / Register
             </Link>
-          }
+          )}
         </div>
+
       </Toolbar>
     </div>
   );

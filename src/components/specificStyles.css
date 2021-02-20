@@ -2,25 +2,38 @@
 /* !Navigation Header */
 .siteName {
   display: flex;
-
   color: blue;
   font-family: Roboto;
   font-size: 24px;
   font-weight: bold;
   text-decoration: underline;
 }
-.logOut {
+.createPost {
   display: flex;
-
   color: blue;
   text-decoration: none;
   font-family: Roboto;
   font-size: 20px;
   font-weight: bold;
 }
-.linkLoginRegister {
+.dashboard {
+  display: flex;
+  color: blue;
+  text-decoration: none;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: bold;
+}
+.logOut {
+  display: flex;
+  color: blue;
+  text-decoration: none;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: bold;
+}
+.loginRegister {
   display: flex;  
-
   color: blue;
   text-decoration: none;
   font-family: Roboto;
@@ -38,13 +51,13 @@
 }
 
 /*!Create a Post Link*/
-.createPostLink {
+/* .createPostLink {
   margin-left: 1em;
   text-decoration: none;
   color: blue;
   font-family: 'Roboto';
   font-size: 16px;
-}
+} */
 
 /*!POSTS*/
 .postsHeading {
@@ -70,7 +83,7 @@
 .createPostPage {
   display: inline-block; 
 }
-.createPost {
+.createPostTitle {
   margin: 15px;
 }
 .titleText {
@@ -138,22 +151,19 @@
   padding: 0.25em;
   outline: 1px solid black;
 }
-.switchTo {
+.switchToLink {
   margin: 30px;
 }
 
 /* !Loading Graphic*/
 #loading {
   position: fixed;
-
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-
   backdrop-filter: blur(3px);
   background: gray;
-
   font-family: "Roboto", sans-serif;
   font-size: 2rem;
   text-align: center;
@@ -161,10 +171,8 @@
 #loading .message {
   min-width: 480px;
   padding: 3rem;
-
   box-shadow: 0 2px 8px blue;
   background: white;
-
   position: absolute;
   top: 50%;
   left: 50%;

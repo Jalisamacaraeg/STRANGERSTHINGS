@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+
 import './specificStyles.css'
 
 const Posts = ({ posts }) => {
@@ -13,7 +14,6 @@ const Posts = ({ posts }) => {
                     <h5>{post.title}</h5>
                     <div>Posted by: {post.author.username}</div>
                     <div>Description: {post.description} </div>
-
                     <button className="viewPostsButton"
                         onClick={() => {
                             history.push(`/posts/${post._id}`);

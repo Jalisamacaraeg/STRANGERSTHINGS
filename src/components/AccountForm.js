@@ -8,7 +8,6 @@ import "./specificStyles.css";
 const AccountForm = ({ action, setToken, setUserData }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
 
   const isLogin = action === "login";
   const title = isLogin ? "Login" : "Register";
@@ -37,6 +36,7 @@ const AccountForm = ({ action, setToken, setUserData }) => {
     <div className="form">
       <h2 className="formTitle">{title}</h2>          
       <form onSubmit={handleSubmit}>
+
         <div>
           <input
             className="inputUsername"
@@ -54,20 +54,7 @@ const AccountForm = ({ action, setToken, setUserData }) => {
             placeholder="password"
             onChange={(event) => setPassword(event.target.value)}
           ></input>
-        </div>
-
-        {/* <div>
-       {if ({title} === "Register")
-        <input
-         className="confirmPassword"
-         type="password"
-         placeholder="confirm password"         
-       ></input>        
-        } 
-        {if (password === confirmPassword)
-        onChange={(event) => setPassword(event.target.value)}          
-        }
-        </div> */}
+        </div>       
 
         <div>
           <Button
@@ -80,7 +67,7 @@ const AccountForm = ({ action, setToken, setUserData }) => {
         </div>
 
       </form>
-      <Link className="switchTo" to={`/${oppositeAction}`}>
+      <Link className="switchToLink" to={`/${oppositeAction}`}>
         {oppositeTitle}
       </Link>
     </div>

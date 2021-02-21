@@ -12,9 +12,8 @@ const CreatePost = ({ token }) => {
   const [deliver, setDeliver] = useState(false);
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    // const token = data?.data?.token;
-    // if there's data, tack on data prop. if data.data tack on token prop
+    event.preventDefault();    
+    
     const data = await callApi({
       url: `/posts`,
       body: { post: { title, description, price, location, deliver } },
@@ -29,7 +28,7 @@ const CreatePost = ({ token }) => {
     } else {
       window.alert("Post wasn't successful");
     }
-    // console.log("hey", data)
+    // console.log("data", data)
   }; 
 
   return (

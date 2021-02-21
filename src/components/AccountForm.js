@@ -23,6 +23,7 @@ const AccountForm = ({ action, setToken, setUserData }) => {
       method: "POST",
     });
     const token = data?.data?.token;
+    // if there's data, tack on data prop. if data.data, tack on token prop
 
     if (token) {
       localStorage.setItem("token", token);

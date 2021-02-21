@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-import { AccountForm, Posts, Post, CreatePost, Dashboard } from ".";
+import { AccountForm, Posts, Post, CreatePost, Dashboard, Reply} from ".";
 import { callApi } from "../api";
 
 import { NavBar } from ".";
@@ -54,7 +54,7 @@ const App = () => {
       <Route exact path="/">
         {userData.username && (
           <>
-          <div className="helloUser">Hello, {userData.username}!</div>
+          <div className="helloUser"><h3>Hello, {userData.username}!</h3></div>
           </>
         )}
         <Posts posts={posts} /> {/* moved here to land on posts page */}
@@ -62,10 +62,14 @@ const App = () => {
       
         <Route path="/dashboard">
           <Dashboard           
-          setToken={setToken}
-          setUserData={setUserData}
+          token={token}
+          userData={userData}
           />
         </Route>
+
+        <Route path="/reply">
+        <Reply token={token} />
+      </Route>
 
       <Route  exact path="/posts/createpost">
         <CreatePost token={token} posts={posts} setPosts={setPosts} />

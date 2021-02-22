@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -25,6 +26,7 @@ const NavBar = ({ setToken, userData, setUserData }) => {
   return (
     <div>
       <Toolbar className={classes.toolbar}>
+        
         <div>
           <Link className="siteName" to="/">
             not Craig's List

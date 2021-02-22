@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { callApi } from "../api";
@@ -13,7 +14,7 @@ const AccountForm = ({ action, setToken, setUserData }) => {
   const title = isLogin ? "Login" : "Register";
   const oppositeTitle = isLogin ? "Register" : "Login";
   const oppositeAction = isLogin ? "register" : "login";
-  const history = useHistory();
+  const history = useHistory();  // you need this in addtion to importing useHistory
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -68,9 +69,11 @@ const AccountForm = ({ action, setToken, setUserData }) => {
         </div>
 
       </form>
+
       <Link className="switchToLink" to={`/${oppositeAction}`}>
         {oppositeTitle}
       </Link>
+      
     </div>
   );
 };

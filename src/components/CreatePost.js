@@ -1,4 +1,6 @@
+
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { callApi } from "../api";
 
 import { Button } from "@material-ui/core";
@@ -10,10 +12,10 @@ const CreatePost = ({ token }) => {
   const [price, setPrice] = useState("");
   const [location, setLocation] = useState("");
   const [deliver, setDeliver] = useState(false);
+  const history = useHistory();  
 
   const handleSubmit = async (event) => {
-    event.preventDefault();    
-    
+    event.preventDefault();  
     const data = await callApi({
       url: `/posts`,
       body: { post: { title, description, price, location, deliver } },
@@ -24,7 +26,7 @@ const CreatePost = ({ token }) => {
     const postSuccess = data?.success;
     if (postSuccess) {
       window.alert("Post submitted!")
-      history.push("/");
+      history.push("/"); // only shows created post after refresh because it's history pushing.
     } else {
       window.alert("Post wasn't successful");
     }
@@ -46,6 +48,7 @@ const CreatePost = ({ token }) => {
             onChange={(event) => setTitle(event.target.value)}
           ></input>
         </div>
+
         <div>
           <div className="descriptionText" htmlFor="Description">
             Description:
@@ -57,6 +60,7 @@ const CreatePost = ({ token }) => {
             onChange={(event) => setDescription(event.target.value)}
           ></textarea>
         </div>
+
         <div>
           <div className="priceText" htmlFor="Price">
             Price:
@@ -68,6 +72,7 @@ const CreatePost = ({ token }) => {
             onChange={(event) => setPrice(event.target.value)}
           ></input>
         </div>
+
         <div>
           <div className="locationText" htmlFor="Location">
             Location:
@@ -79,6 +84,7 @@ const CreatePost = ({ token }) => {
             onChange={(event) => setLocation(event.target.value)}
           ></input>
         </div>
+
         <div className="willDeliver">
           <div>
             Will Deliver ?{" "}
@@ -94,6 +100,7 @@ const CreatePost = ({ token }) => {
             </select>
           </div>
         </div>
+
         <div>
           <Button
             type="submit"
@@ -108,6 +115,7 @@ const CreatePost = ({ token }) => {
             Submit
           </Button>
         </div>
+        
       </form>
     </div>
   );

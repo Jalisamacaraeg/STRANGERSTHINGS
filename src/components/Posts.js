@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
@@ -42,6 +43,7 @@ const Posts = ({ posts }) => {
               updateSearchTerm(event.target.value);
             }}
           />
+          
       {postsToDisplay.length > 0 ? (
         postsToDisplay.map((post) => (
           <div
@@ -51,10 +53,12 @@ const Posts = ({ posts }) => {
             <h5>{post.title}</h5>
             <div>Posted by: {post.author.username}</div>
             <div>Description: {post.description} </div>
+
             <button
               className="viewPostsButton"
               onClick={() => {
                 history.push(`/posts/${post._id}`);
+                // console.log("postID", post._id)
               }}
             >
               View Post

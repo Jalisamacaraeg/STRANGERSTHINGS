@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { callApi } from "../api";
 
@@ -7,10 +8,8 @@ import "./specificStyles.css";
 const Reply = ({ token }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [message, setMessage] = useState("");
 
-  const handleReply = async (event) => {
-    event.preventDefault();
+  const handleReply = async (event) => {    
     // const token = data?.data?.token;
     // if there's data, tack on data prop. if data.data tack on token prop
     const data = await callApi({
@@ -34,6 +33,7 @@ const Reply = ({ token }) => {
     <div className="messagesBody">
       <h2 className="messagesTitle">Reply Message</h2>
       <form onSubmit={handleReply}>
+
         <div>
           <div className="descriptionText" htmlFor="Description"></div>
           <textarea
@@ -58,6 +58,7 @@ const Reply = ({ token }) => {
             Reply
           </Button>
         </div>
+        
       </form>
     </div>
   );

@@ -21,6 +21,7 @@ export const callApi = async ({ url, method, token, body }) => {
 
         //console.log('request url: ', API_URL + url);
         //console.log('options: ', options);
+        
         const response = await fetch(API_URL + url, options);
         const data = await response.json();
         //console.log('data: ', data);

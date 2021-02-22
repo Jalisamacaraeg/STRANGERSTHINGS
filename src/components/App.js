@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { AccountForm, Posts, Post, CreatePost, Dashboard, Reply} from ".";
@@ -11,9 +12,9 @@ const fetchUserData = async (token) => {
     url: "/users/me",
     token,
   });
-
   return data;
 };
+
 const fetchPosts = async () => {
   const {
     data: { posts },
@@ -31,7 +32,6 @@ const App = () => {
   useEffect(async () => {
     const posts = await fetchPosts();
     setPosts(posts);
-
     if (!token) {
       setToken(localStorage.getItem("token"));
       return;

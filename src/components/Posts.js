@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 
 import "./specificStyles.css";
 
-
 const postMatches = (post, searchTerm) => {
   const searchTermLower = searchTerm.toLowerCase();
   const {
@@ -37,9 +36,8 @@ const Posts = ({ posts }) => {
             type="text"
             placeholder="Search for posts"
             style={{ padding: ".25em", marginBottom: ".25em", outline: "1px solid black"}}
-            autofocus="autofocus" onFocus="this.select()"
-            value={searchTerm}
-            onClick="focusMethod()"
+            autoFocus="autoFocus"
+            value={searchTerm}           
             onChange={(event) => {
               updateSearchTerm(event.target.value);
             }}

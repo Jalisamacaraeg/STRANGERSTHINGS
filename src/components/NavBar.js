@@ -14,6 +14,7 @@ const useStyles = makeStyles({
 });
 
 const NavBar = ({ setToken, userData, setUserData }) => {
+
   const logOut = () => {
     localStorage.clear();
     setUserData({});

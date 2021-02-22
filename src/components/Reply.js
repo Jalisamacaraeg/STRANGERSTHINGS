@@ -9,7 +9,7 @@ const Reply = ({ token }) => {
   const [description, setDescription] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = async (event) => {
+  const handleReply = async (event) => {
     event.preventDefault();
     // const token = data?.data?.token;
     // if there's data, tack on data prop. if data.data tack on token prop
@@ -33,7 +33,7 @@ const Reply = ({ token }) => {
   return (
     <div className="messagesBody">
       <h2 className="messagesTitle">Reply Message</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleReply}>
         <div>
           <div className="descriptionText" htmlFor="Description"></div>
           <textarea
